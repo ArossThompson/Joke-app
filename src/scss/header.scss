@@ -1,0 +1,56 @@
+header {
+    position: relative;
+    display: block;
+    flex-direction: row;
+    width: 100%;
+    background: navy;
+    color: white;
+    height: 65px;
+
+    a:visited {
+        color: white
+    }
+
+    a {
+        color: white;
+    }
+
+    .logo {
+        position: absolute;
+        top: 30%; left: 45px;
+    }
+
+    .navigation {
+        margin-left:  50%;
+
+        @media only screen and (max-width: 800px) {
+            margin-left:  30%;
+        }
+
+        .nav-ul {
+            display: flex;
+        }
+
+        .nav-li {
+            flex-direction: row;
+            margin-top: 20px;
+            margin-left: 25px;
+            border-radius: 15px;
+            height: 20px;
+            list-style: none;
+            text-decoration: underline;
+
+            @media only screen and (max-width: 800px) {
+                font-size: 11px;
+                margin-top: 25px;
+            }
+        }      
+
+        .nav-li:hover {
+            transform: scale(1.1);
+            color: white;          
+        }
+    }
+
+    
+}
