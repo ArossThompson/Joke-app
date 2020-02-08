@@ -23,8 +23,12 @@ header {
     .navigation {
         margin-left:  50%;
 
-        @media only screen and (max-width: 800px) {
-            margin-left:  30%;
+        @media only screen and (max-width: 750px) {
+            margin-left:  35%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            margin-left:  25%;
         }
 
         .nav-ul {
@@ -35,14 +39,17 @@ header {
             flex-direction: row;
             margin-top: 20px;
             margin-left: 25px;
-            border-radius: 15px;
-            height: 20px;
+            font-size: 15px;
             list-style: none;
             text-decoration: underline;
 
-            @media only screen and (max-width: 800px) {
-                font-size: 11px;
+            @media only screen and (max-width: 750px) {
+                font-size: 15px;
                 margin-top: 25px;
+            }
+
+            @media only screen and (max-width: 600px) {
+                font-size: 11px;
             }
         }      
 
