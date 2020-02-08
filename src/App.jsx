@@ -1,20 +1,17 @@
 import React from 'react'; 
 import {
     BrowserRouter as Router,
-    Route,
-    Link
+    Route
   } from 'react-router-dom';
 
 // Styles
 import './App.scss'
 
 // Components
-import Header from './components/Header/Header'
-import JokeDisplay from './components/JokeDisplay'
-import Button from './components/Button'
+import Header from './components/Header/Header';
+import RandomJoke from './components/routes/RandomJoke';
+import CustomJoke from './components/routes/CustomJoke';
 
-// API - curly brackets for named exports
-import { chuckAPI } from './api/chuck';
 
 class App extends React.Component {
 
@@ -24,13 +21,6 @@ class App extends React.Component {
         this.state = {
             randomJoke: null
         }
-    }
-
-
-    callRandomJoke = async () => {
-        await chuckAPI.get(`/jokes/random`)
-        .then(res => this.setState({randomJoke: res.data.value.joke}))
-        .catch(err => console.log(err))
     };
 
     render() {
@@ -38,13 +28,8 @@ class App extends React.Component {
             <Router>
                 <div className="App">
                     <Header />
-                    {/* <Button
-                        onClick={this.callRandomJoke}
-                        buttonText="Random Joke"
-                    />
-                    <JokeDisplay
-                        jokeResult={this.state.randomJoke}
-                    />         */}
+                    <Route exact path='/Random-joke' component={RandomJoke} />
+                    <Route path='/custom-joke' component={CustomJoke} />
                 </div>  
             </Router>       
         )
