@@ -1,4 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Developer Note
+
+This project was made as part of a technical test. 
+
+I aimed to demonstrate the following skills: 
+
+- Writing an application in ReactJS, following best practices from a Frontend and a general software development perspective. 
+- Correctly maintaining a git based repository from the command-line. 
+- Writing Unit-tests for a ReactJS application. 
+- Making an application more accessible by making good semantic choices. 
+- Integrate styles with a ReactJS app using SASS.
+- Integrating routing using React-router
+- Demonstrated learning of new techniques, specifically React-hooks. 
+
+Please "git checkout hooks-version" to see the version of this application on which the RandomJokes component uses React-hooks instead of state. 
 
 ## Available Scripts
 
