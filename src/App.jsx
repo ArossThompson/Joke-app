@@ -5,7 +5,7 @@ import {
   } from 'react-router-dom';
 
 // Styles
-import './App.scss'
+import './App.scss';
 
 // Components
 import Header from './components/Header/Header';
