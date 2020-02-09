@@ -16,8 +16,8 @@ class CustomJoke extends React.Component {
             customLast: '',
             customJoke: '',
             showError: false
-        }
-    }
+        };
+    };
 
     callCustomJoke = async () => {
         if(this.state.customFirst !== '' && this.state.customLast !== '') {
@@ -28,7 +28,7 @@ class CustomJoke extends React.Component {
             .catch(err => console.log(err))
         } else {
             this.setState({ showError: true, customJoke: '' })
-        }
+        };
     };
 
     render () {
@@ -48,7 +48,7 @@ class CustomJoke extends React.Component {
                     </label>
                 </div>
                 
-                <Button  onClick={this.callCustomJoke} buttonText="Get Joke" />
+                <Button onClick={this.callCustomJoke} buttonText="Get Joke" />
                 {this.state.showError 
                     ? <p className="validation-error">Please enter a first and last name before searching for a joke!</p>
                     : null
@@ -58,9 +58,9 @@ class CustomJoke extends React.Component {
                     :   null
                 }   
             </div>
-        )
+        );
         
-    }
+    };
 };
 
 export default CustomJoke;

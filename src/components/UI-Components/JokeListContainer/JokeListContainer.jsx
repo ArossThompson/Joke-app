@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { animateScroll } from 'react-scroll';
 
 class JokeListContainer extends React.Component {
 
@@ -6,6 +7,20 @@ class JokeListContainer extends React.Component {
         super(props)
 
         this.state = {}
+    }
+
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+
+    componentDidUpdate () {
+        this.scrollToBottom();
+    }
+
+    scrollToBottom () {
+        animateScroll.scrollToBottom({
+            containerId: "joke-list"
+        });
     }
     
     render() {
@@ -20,7 +35,7 @@ class JokeListContainer extends React.Component {
 
         return (
             <div className="list-container">
-                <ul className="joke-list-scroller">
+                <ul id="joke-list" className="joke-list-scroller">
                     {listItems}
                     {this.props.loadMessage}
                 </ul>

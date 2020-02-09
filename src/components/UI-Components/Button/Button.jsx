@@ -5,13 +5,13 @@ class Button extends React.Component {
         super(props)
 
         this.state = {}
-    }
+    };
 
     render () {
         return (
-            <button className="button" onClick={this.props.onClick}>{this.props.buttonText}</button>
+            <button aria-label={`Click this button to ${this.props.buttonText}`}className="button" onClick={this.props.onClick}>{this.props.buttonText}</button>
         )
-    }
-}
+    };
+};
 
 export default Button

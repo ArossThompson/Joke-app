@@ -13,8 +13,8 @@ class RandomJoke extends React.Component {
 
         this.state = {
             randomJoke: null
-        }
-    }
+        };
+    };
 
     callRandomJoke = async () => {
         await chuckAPI.get(`/jokes/random`)
@@ -36,9 +36,9 @@ class RandomJoke extends React.Component {
                 }
                      
             </div>
-        )
+        );
         
-    }
+    };
 };
 
 export default RandomJoke;

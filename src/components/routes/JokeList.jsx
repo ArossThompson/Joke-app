@@ -17,35 +17,39 @@ class JokeList extends React.Component {
             listLoadMessage: '',
             listStopped: null,
             jokeInterval: null
-        }
-    }
+        };
+    };
+
+    componentWillUnmount () {
+        clearInterval(this.state.jokeInterval)
+    };
 
     appendJokeArray = async () => {
         if(this.state.getJokes) {
             await chuckAPI.get(`/jokes/random`)
             .then(res => this.setState({ jokeArray: [...this.state.jokeArray, res.data.value.joke] }))
             .catch(err => console.log(err))
-        }   
+        };  
         
-    }
+    };
 
     handleGetList = () => { 
         this.setState({
             getJokes: true, 
             listLoadMessage: 'Loading...',
             listStopped: false,
-            jokeInterval: setInterval(this.appendJokeArray, 1000) 
-        })
-    }
+            jokeInterval: setInterval(this.appendJokeArray, 1500) 
+        });
+    };
 
     stopList = () => {
         this.setState({ getJokes: false, listLoadMessage: '', listStopped: true })
         clearInterval(this.state.jokeInterval)
-    }
+    };
 
     clearList = () => {
         this.setState({ jokeArray: [] })
-    }
+    };
 
     render () {
 
@@ -53,11 +57,9 @@ class JokeList extends React.Component {
             <div className="joke-container">
                 <h1 className="route-heading">Joke List</h1>
                 <p className="instructions">Press the get jokes button to load an endless scrollable list of hilarious Chuck Norris jokes!</p>
+
                 <Button onClick={this.handleGetList} buttonText="Get Jokes" />
-                <JokeListContainer
-                    jokes={this.state.jokeArray}
-                    loadMessage={this.state.listLoadMessage}
-                />
+                <JokeListContainer jokes={this.state.jokeArray} loadMessage={this.state.listLoadMessage} /> 
                 {this.state.listLoadMessage !== ''
                     ? <Button onClick={this.stopList} buttonText="Stop" />
                     :   null
@@ -67,9 +69,9 @@ class JokeList extends React.Component {
                     : null
                 }       
             </div>
-        )
+        );
         
-    }
+    };
 };
 
 export default JokeList;
