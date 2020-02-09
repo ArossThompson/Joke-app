@@ -9,7 +9,7 @@ class Button extends React.Component {
 
     render () {
         return (
-            <button aria-label={`Click this button to ${this.props.buttonText}`}className="button" onClick={this.props.onClick}>{this.props.buttonText}</button>
+            <button aria-label={`Click this button to ${this.props.buttonText}`} className="button" onClick={this.props.onClick}>{this.props.buttonText}</button>
         )
     };
 };
