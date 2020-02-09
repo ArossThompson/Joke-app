@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 // Components
 import JokeDisplay from '../UI-Components/JokeDisplay/JokeDisplay';
@@ -7,38 +7,30 @@ import Button from '../UI-Components/Button/Button';
 // API - curly brackets for named exports
 import { chuckAPI } from '../../api/chuck';
 
-class RandomJoke extends React.Component {
-    constructor(props) {
-        super(props) 
+const RandomJoke = () => {
 
-        this.state = {
-            randomJoke: null
-        };
-    };
+    const [joke, setJoke] = useState('');
+    // const [query, setQuery] = useState(['teeth']);
 
-    callRandomJoke = async () => {
+    const callRandomJoke = async () => {
         await chuckAPI.get(`/jokes/random`)
-        .then(res => this.setState({randomJoke: res.data.value.joke}))
-        .catch(err => console.log(err))
+        .then(res => setJoke(res.data.value.joke))
     };
 
-    render () {
+    return (
+        <div className="joke-container">
+            <h1 className="route-heading">Random Joke</h1>
+            <p className="instructions">Click the Get Joke button as many times as you want to receive hilarious Chuck Norris themed jokes!</p>
+            <Button onClick={callRandomJoke} buttonText="Get Joke" />
 
-        return (
-            <div className="joke-container">
-                <h1 className="route-heading">Random Joke</h1>
-                <p className="instructions">Click the Get Joke button as many times as you want to receive hilarious Chuck Norris themed jokes!</p>
-                <Button onClick={this.callRandomJoke} buttonText="Get Joke" />
+            {joke != ''
+                ?   <JokeDisplay jokeResult={joke} />   
+                :   null
+            }
+                    
+        </div>
+    );
 
-                {this.state.randomJoke != null
-                    ?   <JokeDisplay jokeResult={this.state.randomJoke} />   
-                    :   null
-                }
-                     
-            </div>
-        );
-        
-    };
 };
 
 export default RandomJoke;
