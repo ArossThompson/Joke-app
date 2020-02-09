@@ -22,6 +22,7 @@ class JokeListContainer extends React.Component {
             <div className="list-container">
                 <ul className="joke-list-scroller">
                     {listItems}
+                    {this.props.loadMessage}
                 </ul>
             </div>
         )
