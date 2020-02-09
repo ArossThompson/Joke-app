@@ -33,7 +33,8 @@ class JokeList extends React.Component {
         
     };
 
-    handleGetList = () => { 
+    handleGetList = () => {
+        clearInterval(this.state.jokeInterval)
         this.setState({
             getJokes: true, 
             listLoadMessage: 'Loading...',
