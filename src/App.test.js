@@ -13,8 +13,7 @@ describe('App', () => {
 
     it('Should render at-least a div with className App', () => {
         const wrapper = shallow(<App/>);
-        expect(wrapper.exists('div')).toEqual(true);
-        expect(wrapper.exists('.App')).toEqual(true);
+        expect(wrapper.find('div').hasClass('App')).toEqual(true);
     })
 })
 
