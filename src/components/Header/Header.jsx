@@ -6,7 +6,7 @@ class Header extends React.Component {
     return (
       <header>
           <div className="logo">
-            <Link to='/Random-joke'>React App</Link>
+            <Link to='/Random-joke'>Joke App</Link>
           </div>
           <div className="navigation">
             <ul className="nav-ul">

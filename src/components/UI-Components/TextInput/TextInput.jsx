@@ -10,7 +10,10 @@ class TextInput extends React.Component {
     
     render() {
         return (
-            <input className="text-input" type="text"/>
+            <input 
+                className="text-input" 
+                type="text" 
+            />
         )
     }
 

@@ -1,7 +1,8 @@
 import React from 'react'; 
 import {
     BrowserRouter as Router,
-    Route
+    Route,
+    Redirect
   } from 'react-router-dom';
 
 // Styles
@@ -28,7 +29,8 @@ class App extends React.Component {
             <Router>
                 <div className="App">
                     <Header />
-                    <Route exact path='/Random-joke' component={RandomJoke} />
+                    <Route exact path='/' component={RandomJoke} />
+                    <Route path='/Random-joke' component={RandomJoke} />
                     <Route path='/custom-joke' component={CustomJoke} />
                 </div>  
             </Router>       

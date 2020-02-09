@@ -36,8 +36,14 @@ class CustomJoke extends React.Component {
 
         return (
             <div className="joke-container">
-                <TextInput onChange={(e) => { this.setState({ customFirst: e.target.value })}}/>
-                <TextInput onChange={(e) => { this.setState({ customLast: e.target.value })}}/>
+                <label className='field-label'>
+                    First Name: 
+                    <input type="text" className="text-input" onChange={e => this.setState({ customFirst: e.target.value })}/>
+                </label>
+                <label className='field-label'>
+                    Last Name: 
+                    <input type="text" className="text-input" onChange={e => this.setState({ customLast: e.target.value })}/>
+                </label>
                 <Button
                     onClick={this.callCustomJoke}
                     buttonText="Get Joke"
