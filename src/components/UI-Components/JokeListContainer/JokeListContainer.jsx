@@ -9,15 +9,19 @@ class JokeListContainer extends React.Component {
     }
     
     render() {
-        const listItems = this.props.jokes.map(item => {
-            return <li>{item}</li>
+        const listItems = this.props.jokes.map((item, index) => {
+            return (
+                <React.Fragment key={index}>
+                    <hr/>
+                    <li className="joke-list-item">{item}</li>
+                </React.Fragment>
+            )
         });
 
         return (
             <div className="list-container">
-                <ul>
+                <ul className="joke-list-scroller">
                     {listItems}
-                    {this.props.loadMessage}
                 </ul>
             </div>
         )

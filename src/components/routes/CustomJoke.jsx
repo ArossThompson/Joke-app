@@ -12,22 +12,22 @@ class CustomJoke extends React.Component {
         super(props) 
 
         this.state = {
-            customFirst: null,
-            customLast: null,
-            customJoke: null,
+            customFirst: '',
+            customLast: '',
+            customJoke: '',
             showError: false
         }
     }
 
     callCustomJoke = async () => {
-        if(this.state.customFirst != null && this.state.customLast != null) {
+        if(this.state.customFirst !== '' && this.state.customLast !== '') {
             this.setState({ showError: false })
 
             await chuckAPI.get(`/jokes/random/?firstName=${this.state.customFirst}&lastName=${this.state.customLast}`)
             .then(res => this.setState({customJoke: res.data.value.joke}))
             .catch(err => console.log(err))
         } else {
-            this.setState({ showError: true })
+            this.setState({ showError: true, customJoke: '' })
         }
     };
 
@@ -35,25 +35,28 @@ class CustomJoke extends React.Component {
 
         return (
             <div className="joke-container">
-                <label className='field-label'>
-                    First Name: 
-                    <input type="text" className="text-input" onChange={e => this.setState({ customFirst: e.target.value })}/>
-                </label>
-                <label className='field-label'>
-                    Last Name: 
-                    <input type="text" className="text-input" onChange={e => this.setState({ customLast: e.target.value })}/>
-                </label>
-                <Button
-                    onClick={this.callCustomJoke}
-                    buttonText="Get Joke"
-                />
+                <h1 className="route-heading">Custom Joke</h1>
+                <p className="instructions">Enter a First and Last name into the input fields, then press Get Joke to see your custom joke!</p>
+                <div className="input-wrapper">
+                    <label className='field-label'>
+                        <span>First Name:</span>    
+                        <input type="text" className="text-input first-input" onChange={e => this.setState({ customFirst: e.target.value })}/>
+                    </label>
+                    <label className='field-label'>
+                        <span>Last Name: </span> 
+                        <input type="text" className="text-input last-input" onChange={e => this.setState({ customLast: e.target.value })}/>
+                    </label>
+                </div>
+                
+                <Button  onClick={this.callCustomJoke} buttonText="Get Joke" />
                 {this.state.showError 
-                    ? <p className="validation-error">Please enter a first and last name before searching for a joke</p>
+                    ? <p className="validation-error">Please enter a first and last name before searching for a joke!</p>
                     : null
                 }
-                <JokeDisplay
-                    jokeResult={this.state.customJoke}
-                />        
+                {this.state.customJoke !== '' 
+                    ?   <JokeDisplay jokeResult={this.state.customJoke} />   
+                    :   null
+                }   
             </div>
         )
         

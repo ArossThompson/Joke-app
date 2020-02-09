@@ -1,0 +1,122 @@
+// Main Joke Container Field 
+.joke-container {
+    margin-top: 25px; 
+}
+
+.route-heading {
+    text-decoration: underline;
+    
+    @media only screen and (max-width: 750px) {
+        font-size: 24px;
+    }
+}
+
+.instructions {
+    margin: 20px auto;
+    font-size: 20px;
+    width: 80%;
+    
+    @media only screen and (max-width: 750px) {
+        font-size: 16px;
+    }
+}
+
+// Joke Display
+
+.joke-display {
+    margin: 25px auto 0 auto;
+    padding: 5px;
+    border-radius: 25px;
+    border: 2px solid #333333;
+    font-size: 20px;
+    background-color: #ffec64;
+    width: 80%;
+}
+
+.joke-text {
+    font-weight: 700;
+}
+
+.validation-error {
+    font-size: 22px;
+    color: red;
+    font-weight: 700;
+}
+
+// List Display 
+
+.list-container {
+    padding: 20px;
+}
+
+.joke-list-scroller {
+  overflow: scroll;
+  max-height: 270px;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 0;
+  border: 2px solid #ccc;
+  font-size: 16px;
+}
+
+.joke-list-item {
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+// Inputs
+
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.field-label {
+    font-weight: 700;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.text-input {
+    margin-left: 10px;
+    height: 17px;
+    max-width: 140px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid #adadad;
+    border-radius: 15px;
+    padding: 2px;
+}
+
+// Buttons
+.button {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    box-shadow: 0px 1px 0px 0px #fff6af;
+	background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color: #ffec64;
+	border-radius: 6px;
+	border: 1px solid #ffaa22;
+	display: inline-block;
+	cursor: pointer;
+	color:#333333;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffee66;
+}
+
+.button:hover {
+	background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color: #ffab23;
+}
+
+.button:active {
+	position: relative;
+	top: 1px;
+}
+
+

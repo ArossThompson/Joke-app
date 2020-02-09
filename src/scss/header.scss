@@ -17,7 +17,13 @@ header {
 
     .logo {
         position: absolute;
-        top: 30%; left: 45px;
+        top: 30%; left: 20px;
+
+        @media only screen and (max-width: 362px) {
+            font-size: 12px;
+            margin-top: 4px;
+            left: 5px;
+        }
     }
 
     .navigation {
@@ -28,7 +34,11 @@ header {
         }
 
         @media only screen and (max-width: 600px) {
-            margin-left:  25%;
+            margin-left:  15%;
+        }
+
+        @media only screen and (max-width: 362px) {
+            margin-left:  3%;
         }
 
         .nav-ul {

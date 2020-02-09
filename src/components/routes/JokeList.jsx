@@ -14,7 +14,9 @@ class JokeList extends React.Component {
         this.state = {
             getJokes: false,
             jokeArray: [],
-            listLoadMessage: ''
+            listLoadMessage: '',
+            listStopped: null,
+            jokeInterval: null
         }
     }
 
@@ -30,32 +32,40 @@ class JokeList extends React.Component {
     handleGetList = () => { 
         this.setState({
             getJokes: true, 
-            listLoadMessage: 'Loading...', 
+            listLoadMessage: 'Loading...',
+            listStopped: false,
             jokeInterval: setInterval(this.appendJokeArray, 1000) 
         })
     }
 
     stopList = () => {
-        this.setState({ getJokes: false, listLoadMessage: '' })
+        this.setState({ getJokes: false, listLoadMessage: '', listStopped: true })
         clearInterval(this.state.jokeInterval)
+    }
+
+    clearList = () => {
+        this.setState({ jokeArray: [] })
     }
 
     render () {
 
         return (
             <div className="joke-container">
-                <Button
-                    onClick={this.handleGetList}
-                    buttonText="Get Jokes"
-                />
+                <h1 className="route-heading">Joke List</h1>
+                <p className="instructions">Press the get jokes button to load an endless scrollable list of hilarious Chuck Norris jokes!</p>
+                <Button onClick={this.handleGetList} buttonText="Get Jokes" />
                 <JokeListContainer
                     jokes={this.state.jokeArray}
                     loadMessage={this.state.listLoadMessage}
                 />
-                <Button
-                    onClick={this.stopList}
-                    buttonText="Stop"
-                />       
+                {this.state.listLoadMessage !== ''
+                    ? <Button onClick={this.stopList} buttonText="Stop" />
+                    :   null
+                }
+                {this.state.listStopped && this.state.jokeArray.length > 0
+                    ? <Button onClick={this.clearList} buttonText="Clear" />
+                    : null
+                }       
             </div>
         )
         

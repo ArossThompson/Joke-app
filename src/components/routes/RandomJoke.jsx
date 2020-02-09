@@ -26,13 +26,15 @@ class RandomJoke extends React.Component {
 
         return (
             <div className="joke-container">
-                <Button
-                    onClick={this.callRandomJoke}
-                    buttonText="Random Joke"
-                />
-                <JokeDisplay
-                    jokeResult={this.state.randomJoke}
-                />        
+                <h1 className="route-heading">Random Joke</h1>
+                <p className="instructions">Click the Get Joke button as many times as you want to receive hilarious Chuck Norris themed jokes!</p>
+                <Button onClick={this.callRandomJoke} buttonText="Get Joke" />
+
+                {this.state.randomJoke != null
+                    ?   <JokeDisplay jokeResult={this.state.randomJoke} />   
+                    :   null
+                }
+                     
             </div>
         )
         

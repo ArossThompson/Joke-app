@@ -10,8 +10,8 @@ class JokeDisplay extends React.Component {
     
     render() {
         return (
-            <div className="joke-container">
-                <p>{this.props.jokeResult || null}</p>
+            <div className="joke-display">
+                <p className="joke-text">{this.props.jokeResult || null}</p>
             </div>
         )
     }
