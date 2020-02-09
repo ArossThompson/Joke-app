@@ -1,8 +1,7 @@
 import React from 'react'; 
 import {
     BrowserRouter as Router,
-    Route,
-    Redirect
+    Route
   } from 'react-router-dom';
 
 // Styles
@@ -12,6 +11,7 @@ import './App.scss'
 import Header from './components/Header/Header';
 import RandomJoke from './components/routes/RandomJoke';
 import CustomJoke from './components/routes/CustomJoke';
+import JokeList from './components/routes/JokeList';
 
 
 class App extends React.Component {
@@ -32,6 +32,7 @@ class App extends React.Component {
                     <Route exact path='/' component={RandomJoke} />
                     <Route path='/Random-joke' component={RandomJoke} />
                     <Route path='/custom-joke' component={CustomJoke} />
+                    <Route path='/joke-list' component={JokeList} />
                 </div>  
             </Router>       
         )

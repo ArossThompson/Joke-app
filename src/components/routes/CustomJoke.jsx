@@ -3,7 +3,6 @@ import React from 'react';
 // Components
 import JokeDisplay from '../UI-Components/JokeDisplay/JokeDisplay';
 import Button from '../UI-Components/Button/Button';
-import TextInput from '../UI-Components/TextInput/TextInput'
 
 // API - curly brackets for named exports
 import { chuckAPI } from '../../api/chuck';
