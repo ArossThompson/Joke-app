@@ -17,9 +17,8 @@ class RandomJoke extends React.Component {
     };
 
     callRandomJoke = async () => {
-        await chuckAPI.get(`/jokes/random`)
-        .then(res => this.setState({randomJoke: res.data.value.joke}))
-        .catch(err => console.log(err))
+        const res = await chuckAPI.get(`/jokes/random`)
+        this.setState({randomJoke: res.data.value.joke})
     };
 
     render () {

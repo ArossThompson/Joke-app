@@ -27,9 +27,8 @@ class JokeList extends React.Component {
 
     appendJokeArray = async () => {
         if(this.state.getJokes) {
-            await chuckAPI.get(`/jokes/random`)
-            .then(res => this.setState({ jokeArray: [...this.state.jokeArray, res.data.value.joke] }))
-            .catch(err => console.log(err))
+            const res = await chuckAPI.get(`/jokes/random`)
+            this.setState({ jokeArray: [...this.state.jokeArray, res.data.value.joke] })
         };  
         
     };

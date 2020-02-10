@@ -36,5 +36,5 @@ describe('RandomJoke component', () => {
         expect(wrapper.find(JokeDisplay)).toHaveLength(1);
     });
 
-    // Still need to class methods
+    // Still need to test class methods and API calls
 })

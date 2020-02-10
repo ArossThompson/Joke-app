@@ -23,10 +23,8 @@ class CustomJoke extends React.Component {
         // Only call from API if validation conditions met
         if(this.state.customFirst !== '' && this.state.customLast !== '') {
             this.setState({ showError: false })
-
-            await chuckAPI.get(`/jokes/random/?firstName=${this.state.customFirst}&lastName=${this.state.customLast}`)
-            .then(res => this.setState({customJoke: res.data.value.joke}))
-            .catch(err => console.log(err))
+            const res = await chuckAPI.get(`/jokes/random/?firstName=${this.state.customFirst}&lastName=${this.state.customLast}`)
+            this.setState({customJoke: res.data.value.joke})
         } else {
             // Show Error and re-initialise custom joke
             this.setState({ showError: true, customJoke: '' })
