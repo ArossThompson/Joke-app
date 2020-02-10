@@ -12,7 +12,7 @@ class RandomJoke extends React.Component {
         super(props) 
 
         this.state = {
-            randomJoke: null
+            randomJoke: ''
         };
     };
 
@@ -30,7 +30,7 @@ class RandomJoke extends React.Component {
                 <p className="instructions">Click the Get Joke button as many times as you want to receive hilarious Chuck Norris themed jokes!</p>
                 <Button onClick={this.callRandomJoke} buttonText="Get Joke" />
 
-                {this.state.randomJoke != null
+                {this.state.randomJoke !== ''
                     ?   <JokeDisplay jokeResult={this.state.randomJoke} />   
                     :   null
                 }

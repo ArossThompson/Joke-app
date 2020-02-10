@@ -20,6 +20,7 @@ class CustomJoke extends React.Component {
     };
 
     callCustomJoke = async () => {
+        // Only call from API if validation conditions met
         if(this.state.customFirst !== '' && this.state.customLast !== '') {
             this.setState({ showError: false })
 
@@ -27,6 +28,7 @@ class CustomJoke extends React.Component {
             .then(res => this.setState({customJoke: res.data.value.joke}))
             .catch(err => console.log(err))
         } else {
+            // Show Error and re-initialise custom joke
             this.setState({ showError: true, customJoke: '' })
         };
     };

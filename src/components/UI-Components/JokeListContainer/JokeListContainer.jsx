@@ -24,6 +24,7 @@ class JokeListContainer extends React.Component {
     }
     
     render() {
+        // Create listItems Array by mapping over jokes prop, use index parameter to set a unique key prop for each list fragment.
         const listItems = this.props.jokes.map((item, index) => {
             return (
                 <React.Fragment key={index}>

@@ -21,6 +21,7 @@ class JokeList extends React.Component {
     };
 
     componentWillUnmount () {
+        // Ensure interval timer isn't active on other Routes
         clearInterval(this.state.jokeInterval)
     };
 
@@ -34,6 +35,7 @@ class JokeList extends React.Component {
     };
 
     handleGetList = () => {
+        // Clear interval before setting it in state, to prevent interval stacking on get jokes button
         clearInterval(this.state.jokeInterval)
         this.setState({
             getJokes: true, 
@@ -49,6 +51,7 @@ class JokeList extends React.Component {
     };
 
     clearList = () => {
+        // Re-initialise jokeArray to an empty array on clearList
         this.setState({ jokeArray: [] })
     };
 
