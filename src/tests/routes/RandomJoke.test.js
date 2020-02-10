@@ -26,7 +26,7 @@ describe('RandomJoke component', () => {
 
     it('should not render a JokeDisplay child component if randomJoke state var is null', () => {
         const wrapper = shallow(<RandomJoke />);
-        wrapper.setState({randomJoke: null})
+        wrapper.setState({randomJoke: ''})
         expect(wrapper.find(JokeDisplay)).toHaveLength(0);
     });
 
